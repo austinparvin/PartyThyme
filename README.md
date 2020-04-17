@@ -6,6 +6,7 @@ Is a console app that allows users to track their gardens. This will let us trac
 - Create a console app that uses an ORM to talk to a database
 - Working with EF Core
 - Reenforce SQL basics
+- One to many relationships
 
 # Includes: 
 
@@ -13,61 +14,57 @@ Is a console app that allows users to track their gardens. This will let us trac
 - [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)
 - [EF CORE](https://docs.microsoft.com/en-us/ef/core/)
 - [POSTGRESQL](https://www.postgresql.org/)
+- [CONSOLE MENU](https://www.nuget.org/packages/ConsoleMenu-simple/)
 - MVC design pattern
 
+## Featured Code
+
+### One to many relationship POCO
+
 ```C#
- public partial class PlantContext : DbContext
+  public class Album
     {
-        public DbSet<Plant> Plants {get;set;}
-        public PlantContext()
-        {
-        }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public bool IsExplicit { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
-        public PlantContext(DbContextOptions<PlantContext> options)
-            : base(options)
-        {
-        }
+        // Navigation Properties
+        public int BandId { get; set; }
+        public Band Band { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("server=localhost;database=PlantDatabase");
-            }
-        }
+        public List<Song> Songs { get; set; } = new List<Song>();
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            OnModelCreatingPartial(modelBuilder);
-        }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
  ```
  
 ## User Actions
 
-- View
-- Plant
-- Remove
-- Water
-- Need to be watered
-- Location Summary
+- Sign a band
+- Produce an album
+- Let go a band
+- Resign a band
+- View all albums for a band
+- View all albums, ordered by ReleaseDate
+- View an Album's songs
+- View All bands that are signed
+- View all bands that are not signed
+- Exit
 
 ## App In Action
 
+### CONSOLE MENU
+![record it](http://g.recordit.co/IQAXEJN0TA.gif)
+
+### SIGN A BAND
+![record it](http://g.recordit.co/AYF7TqzAcO.gif)
+
+### PRODUCE AN ALBUM
+![record it](http://g.recordit.co/g9LVmhZGZP.gif)
+
+### LET GO A BAND & RESIGN A BAND
+![record it](http://g.recordit.co/ZiwszBUqer.gif)
+
 ### VIEW
-![record it](http://g.recordit.co/gXmrMoRIDf.gif)
+![record it](http://g.recordit.co/R6CztbO3Ej.gif)
 
-### PLANT
-![record it](http://g.recordit.co/CX2YTzDhyN.gif)
-
-### REMOVE
-![record it](http://g.recordit.co/SjUOkdIANb.gif)
-
-### WATER & NEED TO BE WATERED
-![record it](http://g.recordit.co/K6S6EwQCFW.gif)
-
-### LOCATION SUMMARY
-![record it](http://g.recordit.co/LB0pFXeu63.gif)
