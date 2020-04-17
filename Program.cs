@@ -65,7 +65,7 @@ namespace PartyThyme
                             System.Console.WriteLine($"Id:                    {p.Id}");
                             System.Console.WriteLine($"Species:               {p.Species}");
                             System.Console.WriteLine($"Location Planted:      {p.LocatedPlant}");
-                            System.Console.WriteLine($"Date Planted:          {p.PlantedDate.ToString("MM/dd/yyyy")}");
+                            System.Console.WriteLine($"Date Planted:          {p.PlantedDate}");
                             System.Console.WriteLine($"Date Last Watered:     {p.LastWateredDate.ToString("MM/dd/yyyy")}");
                             System.Console.WriteLine($"Light needed (hrs/d):  {p.LightNeeded}");
                             System.Console.WriteLine($"WaterNeeded (ml/d):    {p.WaterNeeded}");
@@ -192,11 +192,12 @@ namespace PartyThyme
                         break;
 
                     case "n":
-                        var today = DateTime.Today.Date; // "02/26/2020"
-                        var dryPlants = db.Plants.Where(p => p.LastWateredDate.Date != today); // "02/26/2020 :00:00 AM"
+                        var today = DateTime.Today.Date; // "02/26/2020 3:45:32 PM"
+                        var dryPlants = db.Plants.Where(p => p.LastWateredDate.Date != today); // "02/26/2020 12:00:00 AM"
 
                         foreach (var p in dryPlants)
                         {
+                            Math.Abs(-1);
                             System.Console.WriteLine("-------------------------------------------");
                             System.Console.WriteLine($"Id:                    {p.Id}");
                             System.Console.WriteLine($"Species:               {p.Species}");
