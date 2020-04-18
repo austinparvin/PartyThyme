@@ -13,7 +13,7 @@ Is a console app that allows users to track their gardens. This will let us trac
 - [LINQ](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)
 - [EF CORE](https://docs.microsoft.com/en-us/ef/core/)
 - [POSTGRESQL](https://www.postgresql.org/)
-- MVC design pattern
+- [MVC](https://dotnet.microsoft.com/apps/aspnet/mvc)
 
 # Featured Code
 
