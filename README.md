@@ -15,6 +15,9 @@ Is a console app that allows users to track their gardens. This will let us trac
 - [POSTGRESQL](https://www.postgresql.org/)
 - MVC design pattern
 
+# Featured Code
+
+## Creating our Database with a EF Core First Approach
 ```C#
  public partial class PlantContext : DbContext
     {
